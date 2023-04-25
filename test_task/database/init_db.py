@@ -11,7 +11,6 @@ class BaseClass(peewee.Model):
 
 class CookieProfile(BaseClass):
     created_date = peewee.DateTimeField(
-        default=datetime.datetime.now,
         null=False,
     )
     cookie_value = peewee.TextField(null=True)
@@ -21,9 +20,9 @@ class CookieProfile(BaseClass):
 
 def upload_date(database):
     database.create_tables([CookieProfile])
-    # for i in range(0, 15):
-    #     string = CookieProfile()
-    #     string.save()
+    for i in range(0, 15):
+         string = CookieProfile(created_date=datetime.datetime.now)
+         string.save()
     database.close()
 
 
